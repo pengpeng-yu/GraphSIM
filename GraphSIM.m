@@ -4,9 +4,12 @@
 % name_d: distorted point cloud
 
 clear
-name_fast = ('redandblack10000_4.ply');
-name_r = ('redandblack.ply'); 
-name_d = ('redandblack_0_0.ply'); 
+global name_fast;
+global name_r;
+global name_d;
+% name_fast = ('redandblack10000_4.ply');
+% name_r = ('redandblack.ply');
+% name_d = ('redandblack_0_0.ply');
 
 tic;
 T = 0.001;
