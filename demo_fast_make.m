@@ -3,10 +3,11 @@
 % Chen S, Tian D, Feng C, et al. Fast resampling of three-dimensional point clouds via graphs[J]. IEEE Transactions on Signal Processing, 2017, 66(3): 666-681.
 clear M lo co;
 global name_r;
-global name_fast;
-pc=pcread(name_r);
-coordinate=pc.Location;
-color=single(pc.Color);
+global pc_r;
+global pc_fast;
+pc_r=pcread(name_r);
+coordinate=pc_r.Location;
+color=single(pc_r.Color);
 num=10000; %resampling rate
 
 attribute=[coordinate,color];
@@ -31,8 +32,5 @@ for i=1:1:4
 lo{i,1}=[coordinate( M(:, i),1),coordinate( M(:, i),2),coordinate( M(:, i),3)];
 co{i,1}=[color( M(:, i),1),color( M(:, i),2),color( M(:, i),3)];
 co{i,1}=uint8(co{i,1});
-pt=pointCloud(lo{i,1},'color',co{i,1});
-[~, basename_r, ~]=fileparts(name_r);
-name_fast=strcat(basename_r,num2str(num),'_',num2str(i),'.ply');
-pcwrite(pt,name_fast,'PLYFormat','binary');
 end
+pc_fast=pointCloud(lo{i,1},'color',co{i,1});

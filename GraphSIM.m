@@ -4,8 +4,8 @@
 % name_d: distorted point cloud
 
 clear
-global name_fast;
-global name_r;
+global pc_r;
+global pc_fast;
 global name_d;
 % name_fast = ('redandblack10000_4.ply');
 % name_r = ('redandblack.ply');
@@ -14,8 +14,6 @@ global name_d;
 tic;
 T = 0.001;
 %% Load point clouds
-pc_fast = pcread(name_fast);
-pc_r = pcread(name_r);
 pc_d = pcread(name_d);
 %% Neighbor Dimension
 pc_r_coor = pc_r.Location;
